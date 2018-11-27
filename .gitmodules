@@ -1,0 +1,3 @@
+[submodule "dockerized-app"]
+	path = dockerized-app
+	url = https://github.com/shipping-docker/dockerized-app.git

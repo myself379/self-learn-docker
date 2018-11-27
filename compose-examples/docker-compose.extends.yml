@@ -1,0 +1,35 @@
+version: '2'
+services:
+  nginx:
+    extends:
+      file: docker-compose.base.yml
+      service: nginx
+    ports:
+     - "81:80"
+  php:
+    extends:
+      file: docker-compose.base.yml
+      service: php
+    environment:
+      APP_ENV: local
+  mysql:
+    extends:
+      file: docker-compose.base.yml
+      service: mysql
+    ports:
+     - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my-app
+      MYSQL_USER: app-user
+      MYSQL_PASSWORD: app-pass
+  redis:
+    extends:
+      file: docker-compose.base.yml
+      service: redis
+networks:
+  sd-net:
+    driver: "bridge"
+volumes:
+  mysqldata:
+    driver: "local"

@@ -1,0 +1,30 @@
+version: '2'
+services:
+  nginx:
+    build: ./nginx
+    volumes:
+     - ./application:/var/www/html
+    networks:
+     - sd-net
+  php:
+    build: ./php
+    volumes:
+     - ./application:/var/www/html
+    networks:
+     - sd-net
+  redis:
+    image: redis:alpine
+    networks:
+     - sd-net
+  mysql:
+    image: mariadb:latest
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+     - sd-net
+networks:
+  sd-net:
+    driver: "bridge"
+volumes:
+  mysqldata:
+    driver: "local"

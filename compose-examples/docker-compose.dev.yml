@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nginx:
+    ports:
+     - "81:80"
+  php:
+    environment:
+      APP_ENV: local
+  mysql:
+    ports:
+     - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: my-app
+      MYSQL_USER: app-user
+      MYSQL_PASSWORD: app-pass
