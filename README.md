@@ -66,8 +66,11 @@ in the future)
 
   # Interacting with a container via bash
   # add -i and it flags to run command
-  # -i, --interactive: Keep STDIN open even if not attached. This means we can input commands into the running process by typing
-  # -t, --tty: Allocate a pseudo-TTY, letting us get output as if we're logged into the container
+  # -i, --interactive: Keep STDIN open even if not attached. 
+  # This means we can input commands into the running process by typing
+  #
+  # -t, --tty: Allocate a pseudo-TTY
+  # letting us get output as if we're logged into the container
   docker run -it ubuntu:16.04 bash
 
   # Sharing ports
